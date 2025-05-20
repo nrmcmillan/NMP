@@ -1,129 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hilton Honey</title>
-<style>
-  /* Basic Reset and fonts */
-  body, html {
-    margin: 0; padding: 0;
-    height: 100%;
-    font-family: 'Open Sans', sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hilton Honey</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f9d423, #ffb347);
+      font-family: 'Georgia', serif;
+      position: relative;
+    }
 
-  /* Background */
-  body {
-    background: url('https://cdn.pixabay.com/photo/2017/07/31/14/38/mountains-2557907_1280.jpg') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #3b2f2f;
-    text-align: center;
-    padding: 2rem;
-  }
+    .headline {
+      position: absolute;
+      top: 5%;
+      width: 100%;
+      text-align: center;
+      font-size: 3em;
+      font-weight: bold;
+      color: #b36b00;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      -webkit-text-stroke: 1px #6b4a00;
+      letter-spacing: 0.05em;
+      z-index: 10;
+    }
 
-  /* Overlay */
-  .overlay {
-    position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(40,30,15,0.4);
-    pointer-events: none;
-    z-index: 0;
-  }
+    .subtext {
+      position: absolute;
+      top: 15%;
+      width: 80%;
+      max-width: 700px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 1.5em;
+      line-height: 1.6;
+      color: #6b4a00;
+      padding: 20px;
+      background: rgba(255, 246, 196, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(179,107,0,0.3);
+      font-style: italic;
+      letter-spacing: 0.03em;
+      text-shadow: 0 1px 1px #f9e375;
+      z-index: 9;
+      margin-bottom: 100px;
+    }
 
-  main {
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
-  }
+    .buy-link {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2em;
+      background-color: #fff3cd;
+      color: #8a4b00;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 2px solid #b36b00;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      font-weight: 700;
+      z-index: 11;
+      transition: background-color 0.3s ease;
+      overflow: visible;
+    }
+    .buy-link:hover {
+      background-color: #ffe082;
+    }
 
-  /* Honey glossy text */
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    background: linear-gradient(135deg, #f9d423, #ffb347, #d18b00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow:
-       0 0 5px #ffdb70,
-       0 0 10px #ffcc33,
-       0 0 15px #ffc107,
-       0 0 20px #ffb300;
-    margin-bottom: 1rem;
-  }
+    /* Drip container */
+    .buy-link::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      width: 6px;
+      height: 12px;
+      background: #ffbb33;
+      border-radius: 3px 3px 6px 6px;
+      box-shadow:
+        10px 0 #ffbb33,
+        20px 3px #f6a600,
+        30px -2px #ffbb33,
+        40px 2px #f6a600;
+      animation: drip 2.5s linear infinite;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 1px 1px rgba(204, 153, 0, 0.6));
+      z-index: 12;
+    }
 
-  p {
-    font-weight: 600;
-    color: #f3e1a7cc;
-    text-shadow: 1px 1px 3px #4a3c2bcc;
-    font-size: 1.3rem;
-    margin-bottom: 2.5rem;
-  }
+    @keyframes drip {
+      0% {
+        box-shadow:
+          10px 0 #ffbb33,
+          20px 3px #f6a600,
+          30px -2px #ffbb33,
+          40px 2px #f6a600;
+        height: 12px;
+        opacity: 1;
+      }
+      50% {
+        box-shadow:
+          10px 8px #ffbb33,
+          20px 11px #f6a600,
+          30px 6px #ffbb33,
+          40px 10px #f6a600;
+        height: 18px;
+        opacity: 0.7;
+      }
+      100% {
+        box-shadow:
+          10px 0 #ffbb33,
+          20px 3px #f6a600,
+          30px -2px #ffbb33,
+          40px 2px #f6a600;
+        height: 12px;
+        opacity: 1;
+      }
+    }
 
-  a.button {
-    background: linear-gradient(135deg, #bfa14f, #a17e0a);
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 1rem 3rem;
-    border-radius: 40px;
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(191, 161, 79, 0.6);
-    transition: background 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-  }
-  a.button:hover {
-    background: linear-gradient(135deg, #a17e0a, #bfa14f);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(191, 161, 79, 0.8);
-  }
+    .bee-container {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      animation: float 3s ease-in-out infinite;
+      z-index: 12;
+    }
 
-  /* Bee styling */
-  .bee {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    animation: floatBee 6s ease-in-out infinite alternate;
-  }
-  .bee:nth-child(1) {
-    top: 10%;
-    left: 5%;
-  }
-  .bee:nth-child(2) {
-    top: 20%;
-    right: 10%;
-    animation-duration: 8s;
-    animation-delay: 2s;
-  }
+    .bee {
+      width: 100%;
+      height: 100%;
+      transform-origin: center;
+    }
 
-  @keyframes floatBee {
-    0% { transform: translateY(0) translateX(0) rotate(0deg);}
-    50% { transform: translateY(-15px) translateX(10px) rotate(15deg);}
-    100% { transform: translateY(0) translateX(0) rotate(0deg);}
-  }
-</style>
+    .bee-wing-left, .bee-wing-right {
+      transform-origin: center;
+      animation: flap 0.3s infinite ease-in-out alternate;
+    }
+
+    @keyframes flap {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(20deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .bee1 {
+      animation: flyCircle1 20s linear infinite;
+    }
+
+    .bee2 {
+      animation: flyCircle2 25s linear infinite;
+    }
+
+    @keyframes flyCircle1 {
+      0%   { top: 10vh; left: 10vw; transform: rotate(0deg); }
+      25%  { top: 30vh; left: 80vw; transform: rotate(90deg); }
+      50%  { top: 70vh; left: 60vw; transform: rotate(180deg); }
+      75%  { top: 50vh; left: 20vw; transform: rotate(270deg); }
+      100% { top: 10vh; left: 10vw; transform: rotate(360deg); }
+    }
+
+    @keyframes flyCircle2 {
+      0%   { top: 80vh; left: 80vw; transform: rotate(180deg); }
+      20%  { top: 60vh; left: 20vw; transform: rotate(270deg); }
+      40%  { top: 40vh; left: 70vw; transform: rotate(0deg); }
+      60%  { top: 20vh; left: 30vw; transform: rotate(90deg); }
+      80%  { top: 60vh; left: 50vw; transform: rotate(180deg); }
+      100% { top: 80vh; left: 80vw; transform: rotate(270deg); }
+    }
+  </style>
 </head>
 <body>
-  <div class="overlay"></div>
-  <main>
-    <h1>Pure Tennessee Gold — Hilton Honey</h1>
-    <p>Locally harvested. Small batch. Unfiltered perfection. Taste the richness of Tennessee's sweetest natural gift.</p>
-    <a class="button" href="#">Buy Now</a>
-  </main>
 
-  <!-- Bees -->
-  <svg class="bee" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bee icon">
-    <path fill="#FFCA28" stroke="#5D4037" stroke-width="2" d="M32 12c5 0 9 4 9 9 0 5-4 9-9 9s-9-4-9-9c0-5 4-9 9-9z"/>
-    <path stroke="#5D4037" stroke-width="2" d="M23 27h18m-6-12v12" />
-    <path fill="#5D4037" d="M20 40c0-7 24-7 24 0 0 7-24 7-24 0z"/>
+<h1 class="headline">Pure Smokey Mountain Honey</h1>
+<p class="subtext">
+  Harvested in the heart of Tennessee’s Smoky Mountains, our honey captures the wild, floral sweetness of the region in every golden drop. Perfectly raw, unfiltered, and packed with nature’s goodness—experience the taste of true Appalachian purity.
+</p>
+<a class="buy-link" href="buy.html">Buy Now</a>
+
+<div class="bee-container bee1" aria-label="Flying bee 1" role="img">
+  <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" >
+    <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
+    <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
+    <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+    <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
+    <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
+    <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
+    <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+    <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
+    <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
   </svg>
-  <svg class="bee" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bee icon">
-    <path fill="#FFCA28" stroke="#5D4037" stroke-width="2" d="M32 12c5 0 9 4 9 9 0 5-4 9-9 9s-9-4-9-9c0-5 4-9 9-9z"/>
-    <path stroke="#5D4037" stroke-width="2" d="M23 27h18m-6-12v12" />
-    <path fill="#5D4037" d="M20 40c0-7 24-7 24 0 0 7-24 7-24 0z"/>
+</div>
+
+<div class="bee-container bee2" aria-label="Flying bee 2" role="img">
+  <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" >
+    <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
+    <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
+    <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+    <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
+    <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
+    <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
+    <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+    <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
+    <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
   </svg>
+</div>
+
 </body>
 </html>
