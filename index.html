@@ -1,54 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hilton Honey</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #fffaf3;
-      color: #3b2f2f;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 2rem;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hilton Honey</title>
+<style>
+  /* Basic Reset and fonts */
+  body, html {
+    margin: 0; padding: 0;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+  }
 
-    h1 {
-      font-size: 2.5rem;
-      color: #bfa14f; /* gold tone */
-      margin-bottom: 0.5rem;
-    }
+  /* Background */
+  body {
+    background: url('https://cdn.pixabay.com/photo/2017/07/31/14/38/mountains-2557907_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3b2f2f;
+    text-align: center;
+    padding: 2rem;
+  }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 500px;
-      margin-bottom: 2rem;
-    }
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(40,30,15,0.4);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-    a.button {
-      text-decoration: none;
-      background-color: #bfa14f;
-      color: #ffffff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
 
-    a.button:hover {
-      background-color: #a68e3c;
-    }
-  </style>
+  /* Honey glossy text */
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #f9d423, #ffb347, #d18b00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow:
+       0 0 5px #ffdb70,
+       0 0 10px #ffcc33,
+       0 0 15px #ffc107,
+       0 0 20px #ffb300;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-weight: 600;
+    color: #f3e1a7cc;
+    text-shadow: 1px 1px 3px #4a3c2bcc;
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  a.button {
+    background: linear-gradient(135deg, #bfa14f, #a17e0a);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 3rem;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(191, 161, 79, 0.6);
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+  a.button:hover {
+    background: linear-gradient(135deg, #a17e0a, #bfa14f);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(191, 161, 79, 0.8);
+  }
+
+  /* Bee styling */
+  .bee {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    animation: floatBee 6s ease-in-out infinite alternate;
+  }
+  .bee:nth-child(1) {
+    top: 10%;
+    left: 5%;
+  }
+  .bee:nth-child(2) {
+    top: 20%;
+    right: 10%;
+    animation-duration: 8s;
+    animation-delay: 2s;
+  }
+
+  @keyframes floatBee {
+    0% { transform: translateY(0) translateX(0) rotate(0deg);}
+    50% { transform: translateY(-15px) translateX(10px) rotate(15deg);}
+    100% { transform: translateY(0) translateX(0) rotate(0deg);}
+  }
+</style>
 </head>
 <body>
-  <h1>Pure Tennessee Gold — Hilton Honey</h1>
-  <p>Locally harvested. Small batch. Unfiltered perfection. Taste the richness of Tennessee's sweetest natural gift.</p>
-  <a class="button" href="#">Buy Now</a>
+  <div class="overlay"></div>
+  <main>
+    <h1>Pure Tennessee Gold — Hilton Honey</h1>
+    <p>Locally harvested. Small batch. Unfiltered perfection. Taste the richness of Tennessee's sweetest natural gift.</p>
+    <a class="button" href="#">Buy Now</a>
+  </main>
+
+  <!-- Bees -->
+  <svg class="bee" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bee icon">
+    <path fill="#FFCA28" stroke="#5D4037" stroke-width="2" d="M32 12c5 0 9 4 9 9 0 5-4 9-9 9s-9-4-9-9c0-5 4-9 9-9z"/>
+    <path stroke="#5D4037" stroke-width="2" d="M23 27h18m-6-12v12" />
+    <path fill="#5D4037" d="M20 40c0-7 24-7 24 0 0 7-24 7-24 0z"/>
+  </svg>
+  <svg class="bee" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bee icon">
+    <path fill="#FFCA28" stroke="#5D4037" stroke-width="2" d="M32 12c5 0 9 4 9 9 0 5-4 9-9 9s-9-4-9-9c0-5 4-9 9-9z"/>
+    <path stroke="#5D4037" stroke-width="2" d="M23 27h18m-6-12v12" />
+    <path fill="#5D4037" d="M20 40c0-7 24-7 24 0 0 7-24 7-24 0z"/>
+  </svg>
 </body>
 </html>
