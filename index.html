@@ -3,33 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hilton Wellness</title>
+  <title>Roommate to Riches</title>
   <style>
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background: #fdfcf9;
-      color: #4b4b4b;
+      background: #f9fafa;
+      color: #333;
       line-height: 1.6;
     }
 
     header {
-      background: #f8f4e3;
-      padding: 3rem 2rem;
+      background: #1e3a5f;
+      padding: 3rem 2rem 4rem;
       text-align: center;
+      color: #fff;
       position: relative;
-      overflow: hidden;
     }
 
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
-      color: #6b4f2d;
     }
 
     header p {
       font-size: 1.2rem;
-      color: #826c52;
+      color: #d1e3f8;
+      margin-bottom: 1rem;
+    }
+
+    .house-animation {
+      margin: 0 auto;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: rotateHouse 12s linear infinite;
+    }
+
+    @keyframes rotateHouse {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .section {
@@ -42,7 +61,7 @@
       text-align: center;
       font-size: 2rem;
       margin-bottom: 2rem;
-      color: #5a4a3f;
+      color: #1e3a5f;
     }
 
     .cards {
@@ -64,7 +83,7 @@
     }
 
     .card h3 {
-      color: #6b4f2d;
+      color: #1e3a5f;
       margin-bottom: 1rem;
     }
 
@@ -73,24 +92,22 @@
     }
 
     .cta {
-      background: #f3ebd9;
+      background: #e5edf5;
       text-align: center;
       padding: 4rem 2rem;
-      position: relative;
-      overflow: hidden;
     }
 
     .cta h2 {
       margin-bottom: 1rem;
       font-size: 2rem;
-      color: #5c4a36;
+      color: #1e3a5f;
     }
 
     .cta a {
       display: inline-block;
       margin-top: 1rem;
       padding: 0.8rem 2rem;
-      background: #d4a373;
+      background: #3b82f6;
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
@@ -99,131 +116,69 @@
     }
 
     .cta a:hover {
-      background: #bc8a5f;
+      background: #2563eb;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      color: #8c7a63;
-    }
-
-    /* Bee styling */
-    .bee-container {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .bee {
-      width: 100%;
-      height: 100%;
-      transform-origin: center;
-    }
-
-    .bee-wing-left, .bee-wing-right {
-      transform-origin: center;
-      animation: flap 0.3s infinite ease-in-out alternate;
-    }
-
-    @keyframes flap {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(20deg); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-
-    .bee1 {
-      animation: flyCircle1 20s linear infinite;
-    }
-
-    .bee2 {
-      animation: flyCircle2 25s linear infinite;
-    }
-
-    @keyframes flyCircle1 {
-      0%   { top: 10vh; left: 10vw; transform: rotate(0deg); }
-      25%  { top: 30vh; left: 80vw; transform: rotate(90deg); }
-      50%  { top: 70vh; left: 60vw; transform: rotate(180deg); }
-      75%  { top: 50vh; left: 20vw; transform: rotate(270deg); }
-      100% { top: 10vh; left: 10vw; transform: rotate(360deg); }
-    }
-
-    @keyframes flyCircle2 {
-      0%   { top: 80vh; left: 80vw; transform: rotate(180deg); }
-      20%  { top: 60vh; left: 20vw; transform: rotate(270deg); }
-      40%  { top: 40vh; left: 70vw; transform: rotate(0deg); }
-      60%  { top: 20vh; left: 30vw; transform: rotate(90deg); }
-      80%  { top: 60vh; left: 50vw; transform: rotate(180deg); }
-      100% { top: 80vh; left: 80vw; transform: rotate(270deg); }
+      color: #6b7280;
+      background: #f1f5f9;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Hilton Wellness</h1>
-    <p>Where nature meets nourishment — a calming journey through the Smokey Mountains</p>
+    <h1>Roommate to Riches</h1>
+    <p>How I Got Paid $1,400/mo to Live in My Own House — And How You Can Too</p>
+    <div class="house-animation" aria-label="Rotating house icon" role="img" title="Rotating house">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="64" height="64" aria-hidden="true" focusable="false">
+        <polygon points="32,4 4,28 12,28 12,60 28,60 28,40 36,40 36,60 52,60 52,28 60,28"
+          fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
+        <rect x="24" y="44" width="8" height="16" fill="#d1e3f8" />
+      </svg>
+    </div>
   </header>
 
   <section class="section">
-    <h2 class="section-title">Seasonal Inspirations</h2>
+    <h2 class="section-title">What You'll Learn</h2>
     <div class="cards">
       <div class="card">
-        <h3>Lavender Honey Tea</h3>
-        <p>A calming blend perfect for quiet evenings. Made with Hilton honey and dried local lavender.</p>
+        <h3>House Hacking 101</h3>
+        <p>What house hacking is, and how to get started — even with a modest income.</p>
       </div>
       <div class="card">
-        <h3>Wildflower Facial Mask</h3>
-        <p>Rejuvenate your skin with our honey-infused wildflower face mask, straight from the Smokeys.</p>
+        <h3>Smart Financing</h3>
+        <p>Use low-down payment loans like FHA to buy your first house affordably.</p>
       </div>
       <div class="card">
-        <h3>Honey Citrus Tonic</h3>
-        <p>A wellness favorite with vitamin C-rich citrus and antibacterial honey for a natural boost.</p>
+        <h3>Roommate Strategy</h3>
+        <p>How I found, screened, and managed tenants (without turning into a landlord full-time).</p>
+      </div>
+      <div class="card">
+        <h3>Simple ROI Tools</h3>
+        <p>Downloadable calculator to run the numbers and understand your potential profit.</p>
+      </div>
+      <div class="card">
+        <h3>Legal & Lease Tips</h3>
+        <p>Key clauses that kept me protected and reduced conflict with renters.</p>
+      </div>
+      <div class="card">
+        <h3>Tax Benefits</h3>
+        <p>How to use tax deductions as a part-time landlord to keep more of your earnings.</p>
       </div>
     </div>
   </section>
 
   <section class="cta">
-    <h2>Book Your Jar</h2>
-    <p>Reserve our exclusive seasonal harvest before it sells out. Shipping begins this fall.</p>
-    <a href="booking.html">Reserve Now</a>
+    <h2>Free Guide: Roommate to Riches</h2>
+    <p>Download the exact house hacking blueprint I used to go from paying rent to collecting it.</p>
+    <a href="#">Get My Free Playbook</a>
   </section>
 
   <footer>
-    &copy; 2025 Hilton Honey. Crafted in the Smokey Mountains.
+    &copy; 2025 Roommate to Riches. Built by someone who actually lives rent-free.
   </footer>
-
-  <div class="bee-container bee1">
-    <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
-      <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
-      <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-      <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
-      <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
-      <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
-      <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-      <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-      <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-    </svg>
-  </div>
-
-  <div class="bee-container bee2">
-    <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
-      <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
-      <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-      <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
-      <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
-      <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
-      <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-      <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-      <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-    </svg>
-  </div>
 </body>
 </html>
