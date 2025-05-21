@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Roommate to Riches</title>
   <style>
     body {
@@ -33,7 +33,7 @@
     }
 
     .house-animation {
-      margin: 0 auto;
+      margin: 0 auto 1.5rem;
       width: 64px;
       height: 64px;
       display: flex;
@@ -49,6 +49,79 @@
       to {
         transform: rotate(360deg);
       }
+    }
+
+    .image-section {
+      max-width: 900px;
+      margin: 2rem auto 3rem;
+      text-align: center;
+    }
+
+    .image-section img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .email-capture {
+      background: #e5edf5;
+      max-width: 500px;
+      margin: 0 auto 4rem;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .email-capture h2 {
+      color: #1e3a5f;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .email-capture p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    .email-capture form {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .email-capture input[type="email"] {
+      flex: 1 1 250px;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .email-capture input[type="email"]:focus {
+      border-color: #2563eb;
+    }
+
+    .email-capture button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .email-capture button:hover {
+      background: #2563eb;
     }
 
     .section {
@@ -126,6 +199,24 @@
       color: #6b7280;
       background: #f1f5f9;
     }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .email-capture form {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .email-capture input[type="email"], .email-capture button {
+        width: 100%;
+        flex: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -140,6 +231,7 @@
       </svg>
     </div>
   </header>
+
 
   <section class="section">
     <h2 class="section-title">What You'll Learn</h2>
@@ -169,6 +261,15 @@
         <p>How to use tax deductions as a part-time landlord to keep more of your earnings.</p>
       </div>
     </div>
+  </section>
+
+  <section class="email-capture" aria-labelledby="email-heading">
+    <h2 id="email-heading">Get Your Free House Hacking Playbook</h2>
+    <p>Join thousands of others learning how to live rent-free and build wealth.</p>
+    <form action="#" method="POST" onsubmit="alert('Thank you for subscribing!'); return false;">
+      <input type="email" name="email" placeholder="Enter your email address" required aria-required="true" />
+      <button type="submit">Subscribe</button>
+    </form>
   </section>
 
   <section class="cta">
