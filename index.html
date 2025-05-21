@@ -2,134 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hilton Honey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hilton Wellness</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      background: linear-gradient(135deg, #f9d423, #ffb347);
-      font-family: 'Georgia', serif;
-      position: relative;
-    }
-
-    .headline {
-      position: absolute;
-      top: 5%;
-      width: 100%;
-      text-align: center;
-      font-size: 3em;
-      font-weight: bold;
-      color: #b36b00;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-      -webkit-text-stroke: 1px #6b4a00;
-      letter-spacing: 0.05em;
-      z-index: 10;
-    }
-
-    .subtext {
-      position: absolute;
-      top: 15%;
-      width: 80%;
-      max-width: 700px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      font-size: 1.5em;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #fdfcf9;
+      color: #4b4b4b;
       line-height: 1.6;
-      color: #6b4a00;
-      padding: 20px;
-      background: rgba(255, 246, 196, 0.85);
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(179,107,0,0.3);
-      font-style: italic;
-      letter-spacing: 0.03em;
-      text-shadow: 0 1px 1px #f9e375;
-      z-index: 9;
-      margin-bottom: 100px;
     }
 
-    .buy-link {
-      position: absolute;
-      top: 52%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.2em;
-      background-color: #fff3cd;
-      color: #8a4b00;
-      padding: 14px 28px;
+    header {
+      background: #f8f4e3;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #6b4f2d;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #826c52;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #5a4a3f;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
       border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #6b4f2d;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+    }
+
+    .cta {
+      background: #f3ebd9;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #5c4a36;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 2rem;
+      background: #d4a373;
+      color: #fff;
       text-decoration: none;
-      border: 2px solid #b36b00;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-      font-weight: 700;
-      z-index: 11;
-      transition: background-color 0.3s ease;
-      overflow: visible;
-    }
-    .buy-link:hover {
-      background-color: #ffe082;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
 
-    /* Drip container */
-    .buy-link::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      width: 6px;
-      height: 12px;
-      background: #ffbb33;
-      border-radius: 3px 3px 6px 6px;
-      box-shadow:
-        10px 0 #ffbb33,
-        20px 3px #f6a600,
-        30px -2px #ffbb33,
-        40px 2px #f6a600;
-      animation: drip 2.5s linear infinite;
-      transform: translateX(-50%);
-      filter: drop-shadow(0 1px 1px rgba(204, 153, 0, 0.6));
-      z-index: 12;
+    .cta a:hover {
+      background: #bc8a5f;
     }
 
-    @keyframes drip {
-      0% {
-        box-shadow:
-          10px 0 #ffbb33,
-          20px 3px #f6a600,
-          30px -2px #ffbb33,
-          40px 2px #f6a600;
-        height: 12px;
-        opacity: 1;
-      }
-      50% {
-        box-shadow:
-          10px 8px #ffbb33,
-          20px 11px #f6a600,
-          30px 6px #ffbb33,
-          40px 10px #f6a600;
-        height: 18px;
-        opacity: 0.7;
-      }
-      100% {
-        box-shadow:
-          10px 0 #ffbb33,
-          20px 3px #f6a600,
-          30px -2px #ffbb33,
-          40px 2px #f6a600;
-        height: 12px;
-        opacity: 1;
-      }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #8c7a63;
     }
 
+    /* Bee styling */
     .bee-container {
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
       animation: float 3s ease-in-out infinite;
-      z-index: 12;
     }
 
     .bee {
@@ -180,40 +165,65 @@
   </style>
 </head>
 <body>
+  <header>
+    <h1>Hilton Wellness</h1>
+    <p>Where nature meets nourishment — a calming journey through the Smokey Mountains</p>
+  </header>
 
-<h1 class="headline">Pure Smokey Mountain Honey</h1>
-<p class="subtext">
-  Harvested in the heart of Tennessee’s Smoky Mountains, our honey captures the wild, floral sweetness of the region in every golden drop. Perfectly raw, unfiltered, and packed with nature’s goodness—experience the taste of true Appalachian purity.
-</p>
-<a class="buy-link" href="buy.html">Buy Now</a>
+  <section class="section">
+    <h2 class="section-title">Seasonal Inspirations</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Lavender Honey Tea</h3>
+        <p>A calming blend perfect for quiet evenings. Made with Hilton honey and dried local lavender.</p>
+      </div>
+      <div class="card">
+        <h3>Wildflower Facial Mask</h3>
+        <p>Rejuvenate your skin with our honey-infused wildflower face mask, straight from the Smokeys.</p>
+      </div>
+      <div class="card">
+        <h3>Honey Citrus Tonic</h3>
+        <p>A wellness favorite with vitamin C-rich citrus and antibacterial honey for a natural boost.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="bee-container bee1" aria-label="Flying bee 1" role="img">
-  <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" >
-    <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
-    <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
-    <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-    <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
-    <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
-    <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
-    <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-    <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-    <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-  </svg>
-</div>
+  <section class="cta">
+    <h2>Book Your Jar</h2>
+    <p>Reserve our exclusive seasonal harvest before it sells out. Shipping begins this fall.</p>
+    <a href="booking.html">Reserve Now</a>
+  </section>
 
-<div class="bee-container bee2" aria-label="Flying bee 2" role="img">
-  <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" >
-    <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
-    <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
-    <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-    <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
-    <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
-    <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
-    <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
-    <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-    <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
-  </svg>
-</div>
+  <footer>
+    &copy; 2025 Hilton Honey. Crafted in the Smokey Mountains.
+  </footer>
 
+  <div class="bee-container bee1">
+    <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
+      <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
+      <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+      <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
+      <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
+      <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
+      <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+      <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
+      <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="bee-container bee2">
+    <svg class="bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <line x1="28" y1="10" x2="22" y2="0" stroke="#5D4037" stroke-width="2" />
+      <line x1="36" y1="10" x2="42" y2="0" stroke="#5D4037" stroke-width="2" />
+      <ellipse cx="32" cy="36" rx="20" ry="14" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+      <line x1="20" y1="26" x2="44" y2="26" stroke="#5D4037" stroke-width="3" />
+      <line x1="20" y1="36" x2="44" y2="36" stroke="#5D4037" stroke-width="3" />
+      <line x1="20" y1="46" x2="44" y2="46" stroke="#5D4037" stroke-width="3" />
+      <circle cx="32" cy="18" r="10" fill="#FFCA28" stroke="#5D4037" stroke-width="2"/>
+      <ellipse class="bee-wing-left" cx="18" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
+      <ellipse class="bee-wing-right" cx="46" cy="30" rx="10" ry="18" fill="#AEE1F9" fill-opacity="0.7" stroke="#5D4037" stroke-width="1"/>
+    </svg>
+  </div>
 </body>
 </html>
