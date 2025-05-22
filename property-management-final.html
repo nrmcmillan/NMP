@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Property Management Services</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #f9fafa;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    body.dark-mode {
+      background: #111;
+      color: #f0f0f0;
+    }
+
+    header {
+      background: #1e3a5f;
+      padding: 3rem 2rem 4rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: inherit;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: inherit;
+    }
+
+    .house-animation {
+      margin: 0 auto 1.5rem;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: rotateHouse 12s linear infinite;
+    }
+
+    @keyframes rotateHouse {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: inherit;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: inherit;
+      margin-bottom: 1rem;
+    }
+
+    .email-capture {
+      background: #e5edf5;
+      max-width: 500px;
+      margin: 0 auto 4rem;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .email-capture h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: inherit;
+    }
+
+    .email-capture p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: inherit;
+    }
+
+    .email-capture form {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .email-capture input[type="email"] {
+      flex: 1 1 250px;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .email-capture button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .cta {
+      background: #e5edf5;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .calendly-container {
+      max-width: 800px;
+      margin: 0 auto;
+      height: 900px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .calendly-container {
+        height: 1100px;
+      }
+    }
+
+    .floating-button, .theme-toggle {
+      position: fixed;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #3b82f6;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .floating-button {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .theme-toggle {
+      top: 20px;
+      right: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      background: #f1f5f9;
+    }
+
+    /* Dark mode overrides for better contrast */
+    .dark-mode .card,
+    .dark-mode .email-capture,
+    .dark-mode .cta,
+    .dark-mode footer {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .section-title,
+    .dark-mode .card h3,
+    .dark-mode header h1,
+    .dark-mode header p,
+    .dark-mode .email-capture h2,
+    .dark-mode .email-capture p {
+      color: #f0f0f0 !important;
+    }
+
+    .dark-mode .email-capture input[type="email"] {
+      background: #222;
+      color: #f0f0f0;
+      border-color: #555;
+    }
+
+    .dark-mode .email-capture input::placeholder {
+      color: #aaa;
+    }
+
+    .dark-mode .email-capture button {
+      background: #60a5fa;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="document.body.classList.toggle('dark-mode')">🌓 Theme</button>
+
+  <header>
+    <h1>Professional Property Management</h1>
+    <p>Reliable, hands-off property solutions for busy landlords and real estate investors</p>
+    <div class="house-animation">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+        <polygon points="32,4 4,28 12,28 12,60 28,60 28,40 36,40 36,60 52,60 52,28 60,28"
+          fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
+        <rect x="24" y="44" width="8" height="16" fill="#d1e3f8" />
+      </svg>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">What I Offer</h2>
+    <div class="cards">
+      <div class="card"><h3>Tenant Screening</h3><p>Thorough background checks to place trustworthy, long-term tenants.</p></div>
+      <div class="card"><h3>Rent Collection</h3><p>Automated systems to ensure timely, hassle-free payments every month.</p></div>
+      <div class="card"><h3>Maintenance Coordination</h3><p>24/7 maintenance scheduling and vendor coordination for peace of mind.</p></div>
+      <div class="card"><h3>Marketing Vacancies</h3><p>Listing and advertising your property to minimize downtime between tenants.</p></div>
+      <div class="card"><h3>Legal Compliance</h3><p>Stay protected with lease agreements, eviction procedures, and local regulations.</p></div>
+      <div class="card"><h3>Financial Reporting</h3><p>Monthly and annual statements to keep your investments on track.</p></div>
+    </div>
+  </section>
+
+  <section class="email-capture">
+    <h2>Get a Free Property Management Consultation</h2>
+    <p>Let’s talk about how I can save you time, stress, and money as your property manager.</p>
+    <form action="https://formspree.io/f/xwpojngk" method="POST" id="contact-form">
+      <input type="email" name="email" placeholder="Enter your email address" required />
+      <input type="hidden" name="message" value="I’m interested in property management services." />
+      <input type="hidden" name="_redirect" value="https://yourwebsite.com/thank-you.html" />
+      <div style="display:none;">
+        <label>Leave this field blank</label>
+        <input type="text" name="_gotcha" />
+      </div>
+      <button type="submit">Contact Me</button>
+    </form>
+    <script>
+      document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = e.target;
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            alert('Thanks for reaching out! I’ll be in touch.');
+            form.reset();
+          } else {
+            alert('Oops! Something went wrong. Try again.');
+          }
+        });
+      });
+    </script>
+  </section>
+
+  <section class="cta" id="calendar">
+    <h2>Book a Free Consultation</h2>
+    <p>Use the calendar below to schedule a call directly with me.</p>
+    <div class="calendly-container">
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/mcmillan-noah/new-meeting"
+           style="min-width:320px;height:100%;"></div>
+    </div>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script>
+      window.addEventListener('message', function(e) {
+        if (e.data.event === 'calendly.event_scheduled') {
+          alert('Thanks for booking! I’ll follow up soon.');
+        }
+      });
+    </script>
+  </section>
+
+  <footer>
+    &copy; 2025 Noah McMillan Property Management. All rights reserved.
+  </footer>
+
+  <button class="floating-button" onclick="document.getElementById('calendar').scrollIntoView({ behavior: 'smooth' })">
+    📅 Schedule
+  </button>
+
+</body>
+</html>
