@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Property Management Services</title>
 
+  <!-- Auto dark mode based on system setting -->
+  <script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('dark-mode');
+      });
+    }
+  </script>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
   <script>
@@ -52,32 +61,6 @@
       color: #fff;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: inherit;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: inherit;
-    }
-
-    .house-animation {
-      margin: 0 auto 1.5rem;
-      width: 64px;
-      height: 64px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: rotateHouse 12s linear infinite;
-    }
-
-    @keyframes rotateHouse {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
     .section {
       padding: 4rem 2rem;
       max-width: 1000px;
@@ -109,46 +92,30 @@
       transform: translateY(-5px);
     }
 
-    .card h3 {
-      color: inherit;
-      margin-bottom: 1rem;
-    }
-
     .email-capture {
       background: #e5edf5;
       max-width: 500px;
       margin: 0 auto 4rem;
-      padding: 2rem 2.5rem;
+      padding: 2rem;
       border-radius: 12px;
       text-align: center;
     }
 
-    .email-capture h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: inherit;
-    }
-
-    .email-capture p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      color: inherit;
-    }
-
     .email-capture form {
       display: flex;
+      flex-direction: column;
       gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
-    .email-capture input[type="email"] {
-      flex: 1 1 250px;
+    .email-capture input,
+    .email-capture textarea {
+      width: 100%;
       padding: 0.8rem 1rem;
       font-size: 1rem;
       border: 2px solid #3b82f6;
       border-radius: 8px;
-      outline: none;
+      background: white;
+      color: #333;
     }
 
     .email-capture button {
@@ -171,7 +138,6 @@
       max-width: 800px;
       margin: 0 auto;
       height: 900px;
-      overflow: hidden;
     }
 
     footer {
@@ -191,104 +157,38 @@
       font-weight: bold;
       color: #fff;
       background-color: #3b82f6;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       cursor: pointer;
       z-index: 1000;
     }
 
-    .floating-button {
-      bottom: 20px;
-      right: 20px;
-    }
+    .floating-button { bottom: 20px; right: 20px; }
+    .theme-toggle { top: 20px; right: 20px; }
 
-    .theme-toggle {
-      top: 20px;
-      right: 20px;
-    }
-
-    /* Dark mode fixes */
+    /* Dark mode overrides */
     .dark-mode .card,
     .dark-mode .email-capture,
     .dark-mode .cta,
     .dark-mode footer {
-      background-color: #1a1a1a;
+      background: #1a1a1a;
       color: #f0f0f0;
     }
 
-    .dark-mode .section-title,
-    .dark-mode .card h3,
-    .dark-mode header h1,
-    .dark-mode header p,
-    .dark-mode .email-capture h2,
-    .dark-mode .email-capture p {
-      color: #f0f0f0 !important;
-    }
-
-    .dark-mode .email-capture input[type="email"] {
+    .dark-mode input,
+    .dark-mode textarea {
       background: #222;
       color: #f0f0f0;
       border-color: #555;
     }
 
-    .dark-mode .email-capture input::placeholder {
+    .dark-mode input::placeholder,
+    .dark-mode textarea::placeholder {
       color: #aaa;
     }
 
-    .dark-mode .email-capture button {
-      background: #60a5fa;
-      color: #111;
-    }
-
-    /* Responsive Design */
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header p {
-        font-size: 1rem;
-      }
-
-      .section {
-        padding: 2rem 1rem;
-      }
-
-      .email-capture {
-        padding: 1.5rem 1rem;
-      }
-
-      .email-capture form {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .email-capture input[type="email"],
-      .email-capture button {
-        width: 100%;
-        flex: none;
-      }
-
-      .card {
-        padding: 1.5rem;
-      }
-
-      .floating-button {
-        right: 16px;
-        bottom: 16px;
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-      }
-
-      .theme-toggle {
-        top: 16px;
-        right: 16px;
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-      }
-
-      .calendly-container {
-        height: 1000px;
-      }
+      .section { padding: 2rem 1rem; }
+      .email-capture { padding: 1.5rem 1rem; }
+      .calendly-container { height: 1000px; }
     }
   </style>
 </head>
@@ -298,77 +198,46 @@
 
   <header>
     <h1>Professional Property Management</h1>
-    <p>Reliable, hands-off property solutions for busy landlords and real estate investors</p>
-    <div class="house-animation">
-      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
-        <polygon points="32,4 4,28 12,28 12,60 28,60 28,40 36,40 36,60 52,60 52,28 60,28"
-          fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
-        <rect x="24" y="44" width="8" height="16" fill="#d1e3f8" />
-      </svg>
-    </div>
+    <p>Reliable, hands-off property solutions for landlords and investors</p>
   </header>
 
   <section class="section">
     <h2 class="section-title">What I Offer</h2>
     <div class="cards">
-      <div class="card"><h3>Tenant Screening</h3><p>Thorough background checks to place trustworthy, long-term tenants.</p></div>
-      <div class="card"><h3>Rent Collection</h3><p>Automated systems to ensure timely, hassle-free payments every month.</p></div>
-      <div class="card"><h3>Maintenance Coordination</h3><p>24/7 maintenance scheduling and vendor coordination for peace of mind.</p></div>
-      <div class="card"><h3>Marketing Vacancies</h3><p>Listing and advertising your property to minimize downtime between tenants.</p></div>
-      <div class="card"><h3>Legal Compliance</h3><p>Stay protected with lease agreements, eviction procedures, and local regulations.</p></div>
-      <div class="card"><h3>Financial Reporting</h3><p>Monthly and annual statements to keep your investments on track.</p></div>
+      <div class="card"><h3>Tenant Screening</h3><p>Background checks for trustworthy tenants.</p></div>
+      <div class="card"><h3>Rent Collection</h3><p>Automated, timely rent systems.</p></div>
+      <div class="card"><h3>Maintenance</h3><p>24/7 scheduling and coordination.</p></div>
+      <div class="card"><h3>Marketing</h3><p>List and fill vacancies quickly.</p></div>
+      <div class="card"><h3>Compliance</h3><p>Leases, evictions, and local laws.</p></div>
+      <div class="card"><h3>Reporting</h3><p>Monthly and annual financial reports.</p></div>
     </div>
   </section>
 
   <section class="email-capture">
-    <h2>Get a Free Property Management Consultation</h2>
-    <p>Let’s talk about how I can save you time, stress, and money as your property manager.</p>
-    <form action="https://formspree.io/f/xwpojngk" method="POST" id="contact-form">
-      <input type="email" name="email" placeholder="Enter your email address" required />
-      <input type="hidden" name="message" value="I’m interested in property management services." />
-      <input type="hidden" name="_redirect" value="https://yourwebsite.com/thank-you.html" />
-      <div style="display:none;">
-        <label>Leave this field blank</label>
-        <input type="text" name="_gotcha" />
-      </div>
+    <h2>Free Consultation</h2>
+    <p>Let’s talk about how I can help manage your property.</p>
+    <form action="https://formspree.io/f/xwpojngk" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input 
+        type="email" name="email" placeholder="Your email" required 
+        oninput="this.setCustomValidity('')" 
+        oninvalid="this.setCustomValidity('Please enter a valid email')" />
+      <textarea name="message" rows="4" placeholder="Tell me about your property..." required></textarea>
+      <input type="text" name="_gotcha" style="display:none;" />
+      <input type="hidden" name="_redirect" value="thank-you.html" />
       <button type="submit">Contact Me</button>
     </form>
-    <script>
-      document.querySelector('form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const form = e.target;
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        }).then(response => {
-          if (response.ok) {
-            alert('Thanks for reaching out! I’ll be in touch.');
-            form.reset();
-          } else {
-            alert('Oops! Something went wrong. Try again.');
-          }
-        });
-      });
-    </script>
   </section>
 
   <section class="cta" id="calendar">
     <h2>Book a Free Consultation</h2>
-    <p>Use the calendar below to schedule a call directly with me.</p>
+    <p>Use the calendar to schedule a call with me.</p>
     <div class="calendly-container">
       <div class="calendly-inline-widget"
-           data-url="https://calendly.com/mcmillan-noah/new-meeting"
-           style="min-width:320px;height:100%;"></div>
+        data-url="https://calendly.com/mcmillan-noah/new-meeting"
+        style="min-width:320px;height:100%;"></div>
     </div>
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <script>
-      window.addEventListener('message', function(e) {
-        if (e.data.event === 'calendly.event_scheduled') {
-          alert('Thanks for booking! I’ll follow up soon.');
-        }
-      });
-    </script>
   </section>
 
   <footer>
