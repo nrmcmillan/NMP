@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Prompt Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f4f4f9;
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    select, input, textarea, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    button:hover {
+      background: #3730a3;
+    }
+    .output {
+      margin-top: 2rem;
+      background: #eef1f7;
+      padding: 1rem;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Prompt Generator</h1>
+
+    <label for="category">Choose a category:</label>
+    <select id="category">
+      <option value="email">Cold Email</option>
+      <option value="instagram">Instagram Caption</option>
+      <option value="blog">Blog Outline</option>
+      <option value="seo">SEO Description</option>
+      <option value="job">Job Cover Letter</option>
+    </select>
+
+    <label for="topic">What's it about?</label>
+    <input type="text" id="topic" placeholder="e.g., AI writing tools" />
+
+    <label for="tone">Tone (optional):</label>
+    <input type="text" id="tone" placeholder="e.g., friendly, persuasive" />
+
+    <button onclick="generate()">Generate</button>
+
+    <div class="output" id="output">AI-generated content will appear here...</div>
+  </div>
+
+  <script>
+    async function generate() {
+      const category = document.getElementById("category").value;
+      const topic = document.getElementById("topic").value;
+      const tone = document.getElementById("tone").value;
+      const outputDiv = document.getElementById("output");
+
+      outputDiv.innerText = "Generating...";
+
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category, topic, tone }),
+      });
+
+      const data = await res.json();
+      outputDiv.innerText = data.output || "Something went wrong.";
+    }
+  </script>
+</body>
+</html>
